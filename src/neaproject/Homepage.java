@@ -200,6 +200,7 @@ public class Homepage extends javax.swing.JFrame {
     private void AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountActionPerformed
         Profile sign = new Profile();
         sign.setVisible(true);
+        
         dispose();
     }//GEN-LAST:event_AccountActionPerformed
 

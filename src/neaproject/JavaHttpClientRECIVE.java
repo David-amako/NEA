@@ -16,7 +16,7 @@ import java.net.URL;
 public class JavaHttpClientRECIVE {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://localhost:1323/useraccounts/3"); // Replace '3' with the desired user ID
+            URL url = new URL("http://localhost:1323/useraccounts"); // Replace '3' with the desired user ID
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 

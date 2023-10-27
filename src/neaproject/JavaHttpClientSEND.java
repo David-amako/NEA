@@ -15,7 +15,7 @@ import java.net.URL;
 public class JavaHttpClientSEND {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://localhost:1323/useraccounts");
+            URL url = new URL("http://localhost:1323/useraccounts1");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");

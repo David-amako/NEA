@@ -61,7 +61,6 @@ public class SignIn extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         EditEmail.setForeground(new java.awt.Color(153, 153, 153));
-        EditEmail.setText("Email");
         EditEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 EditEmailFocusGained(evt);
@@ -88,7 +87,6 @@ public class SignIn extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 51));
         jLabel1.setText("Brand");
 
-        EditPassword.setText("Password");
         EditPassword.setToolTipText("");
         EditPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -171,15 +169,25 @@ public class SignIn extends javax.swing.JFrame {
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
         
         
+
+
+        boolean contin = true;
+        boolean success = false;
+        
+        String usernamee = EditEmail.getText();
+        String password = EditPassword.getText();
+            
+        /*
+        
         try {
             Class.forName(driverClass);
             Connection con = DriverManager.getConnection(url,username,dpassword);
             
-            String username = EditEmail.getText();
-            String password = EditPassword.getText();
+            usernamee = EditEmail.getText();
+            password = EditPassword.getText();
             
             Statement stm = con.createStatement();
-            String sql = "SELECT email, password FROM UserAccounts WHERE (email = '"+username+"') AND (password = '"+password+"')";
+            String sql = "SELECT email, password FROM UserAccounts WHERE (email = '"+usernamee+"') AND (password = '"+password+"')";
             ResultSet rs = stm.executeQuery(sql);
             
             if (rs.next()) {
@@ -197,9 +205,53 @@ public class SignIn extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        */
         
         
         
+
+        
+        JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        
+        String Data = (con.ClientR());
+        
+        String[] words = Data.split("\\s+");
+        
+        for (int i = 0; i < words.length; i++) {
+            
+            words[i] = words[i].replaceAll("[^\\w]", " ");
+            
+            String[] W = words[i].split(" ");
+            
+            for(int j = 0; j < W.length;j++){
+                System.out.println(W[j]);
+                if (usernamee.equalsIgnoreCase(W[j]) && W[j] != " " && contin == true) {
+                    for (int k = 0; k < W.length; k++) {
+                        contin = false;
+                        if (password.equalsIgnoreCase(W[k]) && W[k] != " ") {
+                            success = true;
+                            dispose();
+                            Homepage log = new Homepage();
+                            log.setVisible(true);
+                            
+                            
+                        System.out.println("a");}
+                    System.out.println("b");}
+                System.out.println("c");}
+            System.out.println("d");}
+            
+        
+        
+        }
+        System.out.println("e");
+        if (success == false) {
+          JOptionPane.showMessageDialog(this, "Email and Password Incorrect..");
+                EditEmail.setText("");
+                EditPassword.setText("");  
+        }
+        
+        
+         
     }//GEN-LAST:event_BtnLoginActionPerformed
 
     private void EditEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditEmailActionPerformed

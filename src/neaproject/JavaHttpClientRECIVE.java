@@ -18,10 +18,10 @@ public class JavaHttpClientRECIVE {
     
     
     
-    public static String ClientR(){
+    public static String ClientR(String a){
         String Data = null;
         try {
-            URL url = new URL("http://localhost:1323/useraccounts"); 
+            URL url = new URL("http://localhost:1323/"+a); 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 

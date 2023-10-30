@@ -207,13 +207,15 @@ public class SignIn extends javax.swing.JFrame {
         }
         */
         
-        
+        if (password.isEmpty() || usernamee.equalsIgnoreCase("email")) {
+            contin = false;
+        }
         
 
         
         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
         
-        String Data = (con.ClientR());
+        String Data = (con.ClientR("useraccounts"));
         
         String[] words = Data.split("\\s+");
         
@@ -224,21 +226,21 @@ public class SignIn extends javax.swing.JFrame {
             String[] W = words[i].split(" ");
             
             for(int j = 0; j < W.length;j++){
-                System.out.println(W[j]);
-                if (usernamee.equalsIgnoreCase(W[j]) && W[j] != " " && contin == true) {
+                if (usernamee.equalsIgnoreCase(W[j]) && contin == true) {
                     for (int k = 0; k < W.length; k++) {
                         contin = false;
-                        if (password.equalsIgnoreCase(W[k]) && W[k] != " ") {
+                        if (password.equalsIgnoreCase(W[k])) {
+                            System.out.println(";"+W[k]+";");
                             success = true;
                             dispose();
                             Homepage log = new Homepage();
                             log.setVisible(true);
                             
                             
-                        System.out.println("a");}
-                    System.out.println("b");}
-                System.out.println("c");}
-            System.out.println("d");}
+                        }
+                    }
+                }
+            }
             
         
         

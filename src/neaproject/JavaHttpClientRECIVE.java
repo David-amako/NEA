@@ -21,7 +21,7 @@ public class JavaHttpClientRECIVE {
     public static String ClientR(String a){
         String Data = null;
         try {
-            URL url = new URL("http://localhost:1323/"+a); 
+            URL url = new URL("http://2.221.46.254:1323/"+a); 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 

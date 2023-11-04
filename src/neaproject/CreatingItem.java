@@ -281,6 +281,7 @@ public class CreatingItem extends javax.swing.JFrame {
             String Category = EditCategory.getItemAt(ncategory);
             
             
+            
 
             
             System.out.println(Title);

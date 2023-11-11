@@ -465,6 +465,26 @@ public class Homepage extends javax.swing.JFrame {
             if (w1.size() == 6) {
                 w1.remove(0);
                 int n = w1.size();
+                
+                String[] temp = w1.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w1.set(2, modifiedString);
+        // Print the modified string
+        
+    
+                
+               
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w1.get(j);
@@ -501,6 +521,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w2.size() == 6) {
                 w2.remove(0);
                 int n = w2.size();
+                String[] temp = w2.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w2.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w2.get(j);
@@ -537,6 +573,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w3.size() == 6) {
                 w3.remove(0);
                 int n = w3.size();
+                String[] temp = w3.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w3.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w3.get(j);
@@ -573,6 +625,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w4.size() == 6) {
                 w4.remove(0);
                 int n = w4.size();
+                String[] temp = w4.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w4.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w4.get(j);
@@ -609,6 +677,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w5.size() == 6) {
                 w5.remove(0);
                 int n = w5.size();
+                String[] temp = w5.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w5.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w5.get(j);
@@ -645,6 +729,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w6.size() == 6) {
                 w6.remove(0);
                 int n = w6.size();
+                String[] temp = w6.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w6.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w6.get(j);
@@ -681,6 +781,22 @@ public class Homepage extends javax.swing.JFrame {
             if (w7.size() == 6) {
                 w7.remove(0);
                 int n = w7.size();
+                String[] temp = w7.get(2).split("");
+                
+                
+
+        // Add something to the index before the penultimate (if array length is greater than 1)
+ 
+            int penultimateIndex = temp.length - 2;
+            temp[penultimateIndex] = "." + temp[penultimateIndex];
+        
+
+        // Join the array elements into a string using the comma as a delimiter
+        String modifiedString = String.join("", temp);
+                System.out.println(modifiedString);
+        w7.set(2, modifiedString);
+        // Print the modified string
+        System.out.println("Modified String: " + modifiedString);
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w7.get(j);
@@ -726,11 +842,12 @@ public class Homepage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Homepage().setVisible(true);
+                
             }
         });
     }

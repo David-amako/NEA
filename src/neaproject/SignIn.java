@@ -27,10 +27,7 @@ public class SignIn extends javax.swing.JFrame {
      */
     
     
-    private static String driverClass = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/nea_db";
-    private static String username = "root";
-    private static String dpassword = "bball616.DAS";
+   
     
     
     
@@ -217,35 +214,57 @@ public class SignIn extends javax.swing.JFrame {
         
         String Data = (con.ClientR("useraccounts"));
         
-        String[] words = Data.split("\\s+");
+        String[] words1 = Data.split("\"");
+       
+        ArrayList<String> w1 = new ArrayList<String>();
         
-        for (int i = 0; i < words.length; i++) {
+       for (int i = 0; i < words1.length; i++) {
             
-            words[i] = words[i].replaceAll("[^\\w]", " ");
+            words1[i] = words1[i].replaceAll("[^\\w]", "");
+            words1[i] = words1[i].replaceAll("Email", "");
+            words1[i] = words1[i].replaceAll("Password", "");
+            words1[i] = words1[i].replaceAll("useraccounts", "");
             
-            String[] W = words[i].split(" ");
-            
-            for(int j = 0; j < W.length;j++){
-                if (usernamee.equalsIgnoreCase(W[j]) && contin == true) {
-                    for (int k = 0; k < W.length; k++) {
-                        contin = false;
-                        if (password.equalsIgnoreCase(W[k])) {
-                            System.out.println(";"+W[k]+";");
-                            success = true;
-                            dispose();
-                            Homepage log = new Homepage();
-                            log.setVisible(true);
-                            
-                            
-                        }
-                    }
-                }
-            }
-            
-        
-        
+            if (words1[i].isEmpty()) {   
+        }else{
+                try {
+            // Try to parse the string to an integer
+            int number = Integer.parseInt(words1[i]);
+
+            // If successful, print the result
+            System.out.println("Parsed integer: " + number);
+        } catch (NumberFormatException e) {
+            // If an exception occurs (e.g., input is not a valid integer), catch it here
+            w1.add(words1[i]);
+            System.out.println("Error: " + e.getMessage());
         }
-        System.out.println("e");
+                
+                
+            }
+            if (w1.size() == 2) {
+                System.out.println(w1.get(0));
+                System.out.println(usernamee);
+                System.out.println(w1.get(1));
+                System.out.println(password);
+                if ((usernamee == null ? w1.get(0) == null : usernamee.equalsIgnoreCase(w1.get(0))) && (password == null ? w1.get(1) == null : password.equals(w1.get(1)))) {
+                    success = true;
+                    dispose();
+                    Homepage log = new Homepage();
+                    log.setVisible(true);
+                    w1.clear();
+                }else{
+                    w1.clear();
+                }
+                
+               
+           }
+       
+       }
+
+                            
+                        
+        
+        
         if (success == false) {
           JOptionPane.showMessageDialog(this, "Email and Password Incorrect..");
                 EditEmail.setText("");
@@ -261,17 +280,14 @@ public class SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_EditEmailActionPerformed
 
     private void EditEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditEmailFocusGained
-        if(EditEmail.getText().equals("Email")){
-            EditEmail.setText("");
+
             EditEmail.setForeground (new Color(0,0,0));
-        }
+        
     }//GEN-LAST:event_EditEmailFocusGained
 
     private void EditEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditEmailFocusLost
-        if(EditEmail.getText().equals("")){
-          EditEmail.setText("Email");
-          EditEmail.setForeground (new Color(153,153,153));
-      }
+        
+      
     }//GEN-LAST:event_EditEmailFocusLost
 
     private void EditPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditPasswordFocusGained

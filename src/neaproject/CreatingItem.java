@@ -280,15 +280,13 @@ public class CreatingItem extends javax.swing.JFrame {
             String Duration = EditDuration.getText();
             String Category = EditCategory.getItemAt(ncategory);
             
+            JavaHttpClientSEND con = new JavaHttpClientSEND();
+            
             
             
 
             
-            System.out.println(Title);
-            System.out.println(StatingPrice);
-            System.out.println(Description);
-            System.out.println(Category);
-            System.out.println(Duration);
+            
 
 
         

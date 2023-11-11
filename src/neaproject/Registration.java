@@ -26,10 +26,7 @@ public class Registration extends javax.swing.JFrame {
      * Creates new form Registration
      */
     
-    private static String driverClass = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/nea_db";
-    private static String username = "root";
-    private static String dpassword = "bball616.DAS";
+
     
     
     
@@ -280,9 +277,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         
-        try {
-            Class.forName(driverClass);
-            Connection con = DriverManager.getConnection(url,username,dpassword);
+        
             
             String firstname = editFirstname.getText();
             String surname = editSurname.getText();
@@ -291,30 +286,56 @@ public class Registration extends javax.swing.JFrame {
             String cpassword = EditCPassword.getText();
             String phone = EditPhone.getText();
             Date date = Date.valueOf(LocalDate.now());
+            String g = String.valueOf(LocalDate.now());
             System.out.println(date);
             
-            int max_id = 1;
+            JavaHttpClientSEND con = new JavaHttpClientSEND();
+            
+            boolean valid = true;
            
             
-            Statement stm = con.createStatement();
-            String sql = "INSERT INTO `nea_db`.`useraccounts` (`Firstname`, `Surname`, `Email`, `Password`, `Registration_date`, `Address`, `Phone`) VALUES ('"+firstname+"', '"+surname+"', '"+email+"', '"+password+"', '"+date+"', '', '"+phone+"');";
-            stm.executeUpdate(sql);
+             try {
+            // Try to parse the string to an integer
+            int number = Integer.parseInt(password);
+
+           valid = false;
             
+        } catch (NumberFormatException e) {
             
-            
-            
-            con.close();
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
+             
+            
+             
+     
+            if (valid == true) {
+            
         
-        JOptionPane.showMessageDialog(this, "Account Sucsessfully Added");
+             
+            if (password == null ? cpassword != null : !password.equals(cpassword)) {
+                System.out.println(password);
+                System.out.println(cpassword);
+                 JOptionPane.showMessageDialog(this, "Passwords Do Not Match");
+                 EditPassword.setText("");
+                 EditCPassword.setText("");
+            }else{
+                int data = con.ClientS("adduser","{\"Firstname\":\""+firstname+"\",\"Surname\":\""+surname+"\",\"Email\":\""+email+"\",\"Password\":\""+password+"\",\"Registration_date\":\""+date+"\",\"Phone\":\""+phone+"\"}");
+                if (data == 500) {
+                       JOptionPane.showMessageDialog(this, "Email has been used");
+                 EditEmail.setText("");
+                    }else{
+                JOptionPane.showMessageDialog(this, "Account Sucsessfully Added");
             
                 dispose();
                 SignIn sign = new SignIn();
                 sign.setVisible(true);
+                }
+            }
         
+            }else if (valid == false){
+                JOptionPane.showMessageDialog(this, "Passwords only contains numbers");
+                 EditPassword.setText("");
+                 EditCPassword.setText("");
+            }
         
         
     }//GEN-LAST:event_btnSignInActionPerformed

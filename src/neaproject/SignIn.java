@@ -33,7 +33,7 @@ public class SignIn extends javax.swing.JFrame {
     
     
     public SignIn() {
-        initComponents();
+        initComponents(); 
     }
     
     
@@ -174,35 +174,12 @@ public class SignIn extends javax.swing.JFrame {
         String usernamee = EditEmail.getText();
         String password = EditPassword.getText();
             
-        /*
+        CreatingItem creatingItem = new CreatingItem();
         
-        try {
-            Class.forName(driverClass);
-            Connection con = DriverManager.getConnection(url,username,dpassword);
+
+
+        
             
-            usernamee = EditEmail.getText();
-            password = EditPassword.getText();
-            
-            Statement stm = con.createStatement();
-            String sql = "SELECT email, password FROM UserAccounts WHERE (email = '"+usernamee+"') AND (password = '"+password+"')";
-            ResultSet rs = stm.executeQuery(sql);
-            
-            if (rs.next()) {
-                dispose();
-                Homepage log = new Homepage();
-                log.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(this, "Email and Password Incorrect..");
-                EditEmail.setText("");
-                EditPassword.setText("");
-            }
-            
-            con.close();
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        */
         
         if (password.isEmpty() || usernamee.equalsIgnoreCase("email")) {
             contin = false;
@@ -250,6 +227,7 @@ public class SignIn extends javax.swing.JFrame {
                     success = true;
                     dispose();
                     Homepage log = new Homepage();
+                    log.jLabel3.setText(EditEmail.getText());
                     log.setVisible(true);
                     w1.clear();
                 }else{

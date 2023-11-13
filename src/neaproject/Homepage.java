@@ -32,10 +32,11 @@ public class Homepage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         Account = new javax.swing.JButton();
         RefreshBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         TabbedPannel = new javax.swing.JTabbedPane();
         ShoeTab = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -64,10 +65,6 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel1.setText("Brand");
-
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Search for Items");
 
@@ -86,14 +83,22 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Welcome");
+
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)))
+                .addGap(69, 69, 69)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(RefreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,9 +117,11 @@ public class Homepage extends javax.swing.JFrame {
                             .addComponent(Account, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RefreshBtn)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
-                .addGap(123, 123, 123))
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,7 +154,7 @@ public class Homepage extends javax.swing.JFrame {
         ShoeTabLayout.setHorizontalGroup(
             ShoeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShoeTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ShoeTabLayout.setVerticalGroup(
@@ -187,7 +194,7 @@ public class Homepage extends javax.swing.JFrame {
         ClothingTabLayout.setHorizontalGroup(
             ClothingTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClothingTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ClothingTabLayout.setVerticalGroup(
@@ -227,7 +234,7 @@ public class Homepage extends javax.swing.JFrame {
         ElectronicsTabLayout.setHorizontalGroup(
             ElectronicsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ElectronicsTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ElectronicsTabLayout.setVerticalGroup(
@@ -267,7 +274,7 @@ public class Homepage extends javax.swing.JFrame {
         SportsTabLayout.setHorizontalGroup(
             SportsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SportsTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         SportsTabLayout.setVerticalGroup(
@@ -307,7 +314,7 @@ public class Homepage extends javax.swing.JFrame {
         HealthTabLayout.setHorizontalGroup(
             HealthTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HealthTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         HealthTabLayout.setVerticalGroup(
@@ -347,7 +354,7 @@ public class Homepage extends javax.swing.JFrame {
         FurnitureTabLayout.setHorizontalGroup(
             FurnitureTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FurnitureTabLayout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         FurnitureTabLayout.setVerticalGroup(
@@ -387,7 +394,7 @@ public class Homepage extends javax.swing.JFrame {
         OtherLayout.setHorizontalGroup(
             OtherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OtherLayout.createSequentialGroup()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         OtherLayout.setVerticalGroup(
@@ -407,7 +414,7 @@ public class Homepage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(TabbedPannel))
         );
@@ -417,6 +424,7 @@ public class Homepage extends javax.swing.JFrame {
 
     private void AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountActionPerformed
         Profile sign = new Profile();
+        sign.jLabel7.setText(jLabel3.getText());
         sign.setVisible(true);
         
         dispose();
@@ -863,7 +871,8 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel ShoeTab;
     private javax.swing.JPanel SportsTab;
     private javax.swing.JTabbedPane TabbedPannel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

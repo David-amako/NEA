@@ -7,6 +7,7 @@ package neaproject;
 import java.awt.Color;
 import java.sql.Time;
 import javax.swing.ComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,13 +15,22 @@ import javax.swing.ComboBoxModel;
  */
 public class CreatingItem extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CreatingItem
-     */
+  
+    private String usernamee;
+
+    public void setUsernamee(String usernamee) {
+        this.usernamee = usernamee;
+    }
+    
+
+
+    
+            
     public CreatingItem() {
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +56,8 @@ public class CreatingItem extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Create = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,8 +147,7 @@ public class CreatingItem extends javax.swing.JFrame {
             }
         });
 
-        EditStarting_Price.setForeground(new java.awt.Color(153, 153, 153));
-        EditStarting_Price.setText("Price");
+        EditStarting_Price.setText("0.00");
         EditStarting_Price.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 EditStarting_PriceFocusGained(evt);
@@ -169,7 +180,6 @@ public class CreatingItem extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Only allows whole numbers e.g 500 ≠ 500.00 or 67 ≠ 67.50");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Format 24h 45mins 30sec = 24:45:30");
@@ -181,6 +191,12 @@ public class CreatingItem extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Seller");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("jLabel5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,6 +205,7 @@ public class CreatingItem extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
                     .addComponent(Category)
                     .addComponent(Description)
                     .addComponent(Title)
@@ -196,26 +213,29 @@ public class CreatingItem extends javax.swing.JFrame {
                     .addComponent(Bid_Duration))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditDesciption)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(EditTitle)
-                                .addComponent(EditCategory, 0, 204, Short.MAX_VALUE))
+                            .addComponent(EditDesciption)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(EditDuration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(EditStarting_Price, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))))
-                        .addGap(0, 4, Short.MAX_VALUE)))
-                .addContainerGap(275, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Create, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(EditTitle)
+                                        .addComponent(EditCategory, 0, 204, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(EditDuration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                            .addComponent(EditStarting_Price, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3))))
+                                .addGap(0, 72, Short.MAX_VALUE)))
+                        .addContainerGap(344, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Create, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +265,11 @@ public class CreatingItem extends javax.swing.JFrame {
                     .addComponent(Category)
                     .addComponent(EditCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Create, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Create, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5)))
                 .addGap(48, 48, 48))
         );
 
@@ -274,17 +298,25 @@ public class CreatingItem extends javax.swing.JFrame {
         
             String Title = EditTitle.getText();
             String Description = EditDesciption.getText();
-            String tempStatingPrice = EditStarting_Price.getText();
-            int StatingPrice = Integer.valueOf(tempStatingPrice);
+            String StatingPrice = EditStarting_Price.getText();
             int ncategory = EditCategory.getSelectedIndex();
             String Duration = EditDuration.getText();
             String Category = EditCategory.getItemAt(ncategory);
             
             JavaHttpClientSEND con = new JavaHttpClientSEND();
+            SignIn in = new SignIn();
+            
+            String Seller = jLabel5.getText();
             
             
+            con.ClientS("additem","{\"Title\":\""+Title+"\",\"Description\":\""+Description+"\",\"Starting_Bid\":\""+StatingPrice+"\",\"Current_bid\":\""+StatingPrice+"\",\"Bid_duration\":\""+Duration+"\",\"Seller\":\""+Seller+"\",\"Category\":\""+Category+"\"}");
             
-
+            
+            JOptionPane.showMessageDialog(this, "Item successfully added");
+            
+            dispose();
+                    Homepage log = new Homepage();
+                    log.setVisible(true);
             
             
 
@@ -321,17 +353,11 @@ public class CreatingItem extends javax.swing.JFrame {
     }//GEN-LAST:event_EditDesciptionFocusLost
 
     private void EditStarting_PriceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditStarting_PriceFocusGained
-        if(EditStarting_Price.getText().equals("Price")){
-            EditStarting_Price.setText("");
-            EditStarting_Price.setForeground (new Color(0,0,0));
-        }
+        
     }//GEN-LAST:event_EditStarting_PriceFocusGained
 
     private void EditStarting_PriceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditStarting_PriceFocusLost
-        if(EditStarting_Price.getText().equals("")){
-          EditStarting_Price.setText("Price");
-          EditStarting_Price.setForeground (new Color(153,153,153));
-      }
+       
     }//GEN-LAST:event_EditStarting_PriceFocusLost
 
     private void EditDurationFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EditDurationFocusGained
@@ -394,6 +420,8 @@ public class CreatingItem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

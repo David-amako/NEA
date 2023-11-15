@@ -197,7 +197,14 @@ public class SignIn extends javax.swing.JFrame {
         
        for (int i = 0; i < words1.length; i++) {
             
-            words1[i] = words1[i].replaceAll("[^\\w]", "");
+            words1[i] = words1[i].replaceAll("\\{", "");
+            words1[i] = words1[i].replaceAll(":\\{", "");
+            words1[i] = words1[i].replaceAll(":", "");
+            words1[i] = words1[i].replaceAll(",", "");
+            words1[i] = words1[i].replaceAll("},", "");
+            words1[i] = words1[i].replaceAll("}}}", "");
+            words1[i] = words1[i].replaceAll("\\}", "");
+            
             words1[i] = words1[i].replaceAll("Email", "");
             words1[i] = words1[i].replaceAll("Password", "");
             words1[i] = words1[i].replaceAll("useraccounts", "");
@@ -227,8 +234,8 @@ public class SignIn extends javax.swing.JFrame {
                     success = true;
                     dispose();
                     Homepage log = new Homepage();
-                    log.jLabel3.setText(EditEmail.getText());
-                    log.setVisible(true);
+                    new Homepage(usernamee).setVisible(true);
+                    //log.setVisible(true);
                     w1.clear();
                 }else{
                     w1.clear();

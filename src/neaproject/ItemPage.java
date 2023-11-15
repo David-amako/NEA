@@ -4,6 +4,8 @@
  */
 package neaproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author amakod
@@ -16,7 +18,20 @@ public class ItemPage extends javax.swing.JFrame {
     public ItemPage() {
         initComponents();
     }
-
+    
+    public String Title;
+    public String Description;
+    
+    public ItemPage(String msg0, String msg1,String msg2,String msg3,String msg4) {
+        initComponents();
+        jLabel7.setText(msg0);
+        jLabel8.setText(msg1);
+        jLabel9.setText(msg2);
+        jLabel10.setText(msg3);
+        jLabel11.setText(msg4);
+        Title = msg0;
+        Description = msg1;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +41,189 @@ public class ItemPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        newPrice = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel1.setText("Brand");
+
+        jButton1.setText("Home");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 931, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addGap(123, 123, 123))
+        );
+
+        jLabel2.setText("Title");
+
+        jLabel3.setText("Description");
+
+        jLabel4.setText("Current Price");
+
+        jLabel5.setText("End Time");
+
+        jLabel6.setText("Seller");
+
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setText("jLabel8");
+
+        jLabel9.setText("jLabel9");
+
+        jLabel10.setText("jLabel10");
+
+        jLabel11.setText("jLabel11");
+
+        jButton2.setText("Bid");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Place A Bid");
+
+        newPrice.setText("0.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(376, 376, 376)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel12))
+                .addGap(28, 28, 28)
+                .addComponent(newPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9))
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Homepage log = new Homepage();
+        log.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        String price = newPrice.getText();
+        //"{ \"title\": \"exampleTitle\", \"description\": \"exampleDescription\", \"field\": \"columnName\", \"value\": \"updatedValue\" }";
+        
+        try {
+            float n = Float.parseFloat(price);
+            String rprice = price;
+            JavaHttpClientUPDATE con = new JavaHttpClientUPDATE();
+            con.ClientU("updateitem","{ \"title\": \""+Title+"\", \"description\": \""+Description+"\", \"field\": \"Current_bid\", \"value\": \""+rprice+"\" }");
+            JOptionPane.showMessageDialog(this, "Bid Placed");
+            dispose();
+            Homepage log = new Homepage();
+            log.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Bid not entered correctly");
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +262,21 @@ public class ItemPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField newPrice;
     // End of variables declaration//GEN-END:variables
 }

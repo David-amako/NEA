@@ -22,6 +22,15 @@ public class Homepage extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String username;
+    
+    public Homepage(String user) {
+        initComponents();
+        username = user;
+        jLabel3.setText(username);
+        
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,6 +149,11 @@ public class Homepage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane8.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setHeaderValue("Title");
@@ -178,6 +192,11 @@ public class Homepage extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable2);
@@ -220,6 +239,11 @@ public class Homepage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
         if (jTable3.getColumnModel().getColumnCount() > 0) {
             jTable3.getColumnModel().getColumn(0).setHeaderValue("Title");
@@ -258,6 +282,11 @@ public class Homepage extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
             }
         });
         jScrollPane4.setViewportView(jTable4);
@@ -300,6 +329,11 @@ public class Homepage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable5MouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jTable5);
         if (jTable5.getColumnModel().getColumnCount() > 0) {
             jTable5.getColumnModel().getColumn(0).setHeaderValue("Title");
@@ -340,6 +374,11 @@ public class Homepage extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable6MouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(jTable6);
         if (jTable6.getColumnModel().getColumnCount() > 0) {
             jTable6.getColumnModel().getColumn(0).setHeaderValue("Title");
@@ -378,6 +417,11 @@ public class Homepage extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable7MouseClicked(evt);
             }
         });
         jScrollPane7.setViewportView(jTable7);
@@ -424,7 +468,6 @@ public class Homepage extends javax.swing.JFrame {
 
     private void AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountActionPerformed
         Profile sign = new Profile();
-        sign.jLabel7.setText(jLabel3.getText());
         sign.setVisible(true);
         
         dispose();
@@ -458,7 +501,14 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words1.length; i++) {
             
-            words1[i] = words1[i].replaceAll("[^\\w]", "");
+            words1[i] = words1[i].replaceAll("\\{", "");
+            words1[i] = words1[i].replaceAll(":\\{", "");
+            words1[i] = words1[i].replaceAll(":", "");
+            words1[i] = words1[i].replaceAll(",", "");
+            words1[i] = words1[i].replaceAll("},", "");
+            words1[i] = words1[i].replaceAll("}}}", "");
+            words1[i] = words1[i].replaceAll("\\}", "");
+            
             words1[i] = words1[i].replaceAll("items", "");
             words1[i] = words1[i].replaceAll("Title", "");
             words1[i] = words1[i].replaceAll("Description", "");
@@ -468,13 +518,14 @@ public class Homepage extends javax.swing.JFrame {
             if (words1[i].isEmpty()) {   
         }else{
                 w1.add(words1[i]);
+                System.out.println(words1[i]);
                 
             }
             if (w1.size() == 6) {
                 w1.remove(0);
                 int n = w1.size();
                 
-                String[] temp = w1.get(2).split("");
+               /* String[] temp = w1.get(2).split("");
                 
                 
 
@@ -488,7 +539,7 @@ public class Homepage extends javax.swing.JFrame {
         String modifiedString = String.join("", temp);
                 System.out.println(modifiedString);
         w1.set(2, modifiedString);
-        // Print the modified string
+        // Print the modified string*/
         
     
                 
@@ -514,7 +565,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words2.length; i++) {
             
-            words2[i] = words2[i].replaceAll("[^\\w]", "");
+            words2[i] = words2[i].replaceAll("\\{", "");
+            words2[i] = words2[i].replaceAll(":\\{", "");
+            words2[i] = words2[i].replaceAll(":", "");
+            words2[i] = words2[i].replaceAll(",", "");
+            words2[i] = words2[i].replaceAll("},", "");
+            words2[i] = words2[i].replaceAll("}}}", "");
+            words2[i] = words2[i].replaceAll("\\}", "");
             words2[i] = words2[i].replaceAll("items", "");
             words2[i] = words2[i].replaceAll("Title", "");
             words2[i] = words2[i].replaceAll("Description", "");
@@ -529,7 +586,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w2.size() == 6) {
                 w2.remove(0);
                 int n = w2.size();
-                String[] temp = w2.get(2).split("");
+               /* String[] temp = w2.get(2).split("");
                 
                 
 
@@ -544,7 +601,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w2.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w2.get(j);
@@ -566,7 +623,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words3.length; i++) {
             
-            words3[i] = words3[i].replaceAll("[^\\w]", "");
+            words3[i] = words3[i].replaceAll("\\{", "");
+            words3[i] = words3[i].replaceAll(":\\{", "");
+            words3[i] = words3[i].replaceAll(":", "");
+            words3[i] = words3[i].replaceAll(",", "");
+            words3[i] = words3[i].replaceAll("},", "");
+            words3[i] = words3[i].replaceAll("}}}", "");
+            words3[i] = words3[i].replaceAll("\\}", "");
             words3[i] = words3[i].replaceAll("items", "");
             words3[i] = words3[i].replaceAll("Title", "");
             words3[i] = words3[i].replaceAll("Description", "");
@@ -581,7 +644,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w3.size() == 6) {
                 w3.remove(0);
                 int n = w3.size();
-                String[] temp = w3.get(2).split("");
+              /*  String[] temp = w3.get(2).split("");
                 
                 
 
@@ -596,7 +659,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w3.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w3.get(j);
@@ -618,7 +681,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words4.length; i++) {
             
-            words4[i] = words4[i].replaceAll("[^\\w]", "");
+            words4[i] = words4[i].replaceAll("\\{", "");
+            words4[i] = words4[i].replaceAll(":\\{", "");
+            words4[i] = words4[i].replaceAll(":", "");
+            words4[i] = words4[i].replaceAll(",", "");
+            words4[i] = words4[i].replaceAll("},", "");
+            words4[i] = words4[i].replaceAll("}}}", "");
+            words4[i] = words4[i].replaceAll("\\}", "");
             words4[i] = words4[i].replaceAll("items", "");
             words4[i] = words4[i].replaceAll("Title", "");
             words4[i] = words4[i].replaceAll("Description", "");
@@ -633,7 +702,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w4.size() == 6) {
                 w4.remove(0);
                 int n = w4.size();
-                String[] temp = w4.get(2).split("");
+               /* String[] temp = w4.get(2).split("");
                 
                 
 
@@ -648,7 +717,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w4.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w4.get(j);
@@ -670,7 +739,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words5.length; i++) {
             
-            words5[i] = words5[i].replaceAll("[^\\w]", "");
+            words5[i] = words5[i].replaceAll("\\{", "");
+            words5[i] = words5[i].replaceAll(":\\{", "");
+            words5[i] = words5[i].replaceAll(":", "");
+            words5[i] = words5[i].replaceAll(",", "");
+            words5[i] = words5[i].replaceAll("},", "");
+            words5[i] = words5[i].replaceAll("}}}", "");
+            words5[i] = words5[i].replaceAll("\\}", "");
             words5[i] = words5[i].replaceAll("items", "");
             words5[i] = words5[i].replaceAll("Title", "");
             words5[i] = words5[i].replaceAll("Description", "");
@@ -685,7 +760,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w5.size() == 6) {
                 w5.remove(0);
                 int n = w5.size();
-                String[] temp = w5.get(2).split("");
+               /* String[] temp = w5.get(2).split("");
                 
                 
 
@@ -700,7 +775,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w5.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w5.get(j);
@@ -722,7 +797,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words6.length; i++) {
             
-            words6[i] = words6[i].replaceAll("[^\\w]", "");
+            words6[i] = words6[i].replaceAll("\\{", "");
+            words6[i] = words6[i].replaceAll(":\\{", "");
+            words6[i] = words6[i].replaceAll(":", "");
+            words6[i] = words6[i].replaceAll(",", "");
+            words6[i] = words6[i].replaceAll("},", "");
+            words6[i] = words6[i].replaceAll("}}}", "");
+            words6[i] = words6[i].replaceAll("\\}", "");
             words6[i] = words6[i].replaceAll("items", "");
             words6[i] = words6[i].replaceAll("Title", "");
             words6[i] = words6[i].replaceAll("Description", "");
@@ -737,7 +818,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w6.size() == 6) {
                 w6.remove(0);
                 int n = w6.size();
-                String[] temp = w6.get(2).split("");
+             /*   String[] temp = w6.get(2).split("");
                 
                 
 
@@ -752,7 +833,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w6.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w6.get(j);
@@ -774,7 +855,13 @@ public class Homepage extends javax.swing.JFrame {
         
        for (int i = 0; i < words7.length; i++) {
             
-            words7[i] = words7[i].replaceAll("[^\\w]", "");
+            words7[i] = words7[i].replaceAll("\\{", "");
+            words7[i] = words7[i].replaceAll(":\\{", "");
+            words7[i] = words7[i].replaceAll(":", "");
+            words7[i] = words7[i].replaceAll(",", "");
+            words7[i] = words7[i].replaceAll("},", "");
+            words7[i] = words7[i].replaceAll("}}}", "");
+            words7[i] = words7[i].replaceAll("\\}", "");
             words7[i] = words7[i].replaceAll("items", "");
             words7[i] = words7[i].replaceAll("Title", "");
             words7[i] = words7[i].replaceAll("Description", "");
@@ -789,7 +876,7 @@ public class Homepage extends javax.swing.JFrame {
             if (w7.size() == 6) {
                 w7.remove(0);
                 int n = w7.size();
-                String[] temp = w7.get(2).split("");
+             /*   String[] temp = w7.get(2).split("");
                 
                 
 
@@ -804,7 +891,7 @@ public class Homepage extends javax.swing.JFrame {
                 System.out.println(modifiedString);
         w7.set(2, modifiedString);
         // Print the modified string
-        System.out.println("Modified String: " + modifiedString);
+        System.out.println("Modified String: " + modifiedString);*/
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
                     tbData[j] = w7.get(j);
@@ -823,6 +910,98 @@ public class Homepage extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_RefreshBtnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+         int Row = jTable1.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable1.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+         
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int Row = jTable2.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable2.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        int Row = jTable3.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable3.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        int Row = jTable4.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable4.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
+        int Row = jTable5.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable5.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable5MouseClicked
+
+    private void jTable6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable6MouseClicked
+        int Row = jTable6.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable6.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable6MouseClicked
+
+    private void jTable7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable7MouseClicked
+        int Row = jTable7.getSelectedRow();
+         DefaultTableModel Model = (DefaultTableModel)jTable7.getModel();
+         
+         String Title = Model.getValueAt(Row, 0).toString();
+         String Description = Model.getValueAt(Row, 1).toString();
+         String Price = Model.getValueAt(Row, 2).toString();
+         String End_Time = Model.getValueAt(Row, 3).toString();
+         String Seller = Model.getValueAt(Row, 4).toString();
+         
+         new ItemPage(Title,Description,Price,End_Time,Seller).setVisible(true);
+    }//GEN-LAST:event_jTable7MouseClicked
 
     /**
      * @param args the command line arguments

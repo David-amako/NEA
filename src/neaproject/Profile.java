@@ -14,13 +14,12 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
  */
 public class Profile extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Profile
-     */
+    
     public Profile() {
         initComponents();
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +39,20 @@ public class Profile extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         CreateItem = new javax.swing.JButton();
@@ -106,14 +119,76 @@ public class Profile extends javax.swing.JFrame {
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
+        jLabel1.setText("Firstname");
+
+        jLabel8.setText("Surname");
+
+        jLabel9.setText("Email");
+
+        jLabel10.setText("Password");
+
+        jLabel11.setText("Reg Date");
+
+        jLabel12.setText("Adress");
+
+        jLabel13.setText("Phone");
+
+        jTextField2.setEditable(false);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
+
+        jTextField5.setEditable(false);
+
+        jTextField6.setEditable(false);
+
+        jTextField7.setEditable(false);
+
+        jTextField8.setEditable(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(409, 409, 409)
-                .addComponent(jLabel2)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(409, 409, 409)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel13))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField2)
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField6)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(481, 481, 481)
@@ -127,9 +202,29 @@ public class Profile extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(202, 202, 202)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
                 .addComponent(jLabel2)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(189, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(196, 196, 196)
@@ -265,9 +360,12 @@ public class Profile extends javax.swing.JFrame {
     private void CreateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateItemActionPerformed
                 dispose();
                 CreatingItem sign = new CreatingItem();
-                sign.jLabel5.setText(jLabel7.getText());
                 sign.setVisible(true);
     }//GEN-LAST:event_CreateItemActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+       
+    }//GEN-LAST:event_jTextField2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -307,12 +405,19 @@ public class Profile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateItem;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -322,5 +427,12 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,14 @@
  */
 package neaproject;
 
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,16 +29,23 @@ public class ItemPage extends javax.swing.JFrame {
     
     public String Title;
     public String Description;
+    ChronoLocalDate End_date;
+    String Email;
+    String pprit;
     
-    public ItemPage(String msg0, String msg1,String msg2,String msg3,String msg4) {
+    public ItemPage(String msg0, String msg1,String msg2,ChronoLocalDate msg3,String msg4, String msg5) {
         initComponents();
         jLabel7.setText(msg0);
         jLabel8.setText(msg1);
         jLabel9.setText(msg2);
-        jLabel10.setText(msg3);
+        String sd = String.valueOf(msg3);
+        jLabel10.setText(sd);
         jLabel11.setText(msg4);
         Title = msg0;
         Description = msg1;
+        End_date = msg3;
+        Email = msg5;
+        pprit = msg2;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,7 +120,7 @@ public class ItemPage extends javax.swing.JFrame {
 
         jLabel4.setText("Current Price");
 
-        jLabel5.setText("End Time");
+        jLabel5.setText("End Date");
 
         jLabel6.setText("Seller");
 
@@ -198,8 +213,8 @@ public class ItemPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Homepage log = new Homepage();
-        log.setVisible(true);
+        System.out.println("::::::::"+Email);
+        new Homepage(Email).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -208,20 +223,46 @@ public class ItemPage extends javax.swing.JFrame {
         String price = newPrice.getText();
         //"{ \"title\": \"exampleTitle\", \"description\": \"exampleDescription\", \"field\": \"columnName\", \"value\": \"updatedValue\" }";
         
+        LocalDate today = LocalDate.now();
+        
+        if (today.isBefore(End_date)) {
+            
         try {
             float n = Float.parseFloat(price);
             String rprice = price;
-            JavaHttpClientUPDATE con = new JavaHttpClientUPDATE();
-            con.ClientU("updateitem","{ \"title\": \""+Title+"\", \"description\": \""+Description+"\", \"field\": \"Current_bid\", \"value\": \""+rprice+"\" }");
-            JOptionPane.showMessageDialog(this, "Bid Placed");
-            dispose();
-            Homepage log = new Homepage();
-            log.setVisible(true);
+            float q = Float.parseFloat(rprice);
+            float w = Float.parseFloat(pprit);
+            if (q > w) {
+                JavaHttpClientUPDATE con = new JavaHttpClientUPDATE();
+                con.ClientU("updateitem","{\"title\": \""+Title+"\",\"Description\": \""+Description+"\",\"field1\": \"Current_bid\",\"field2\": \"CurrentBid_holder\",\"value1\": \""+rprice+"\",\"value2\": \""+Email+"\"}");
+                JavaHttpClientRECIVE co = new JavaHttpClientRECIVE();
+                String Data = co.ClientR("user/"+Email);
+                String[] words = Data.split("\"");
+                System.out.println(words[3]);
+                String Dato = co.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+                String[] word = Dato.split("\"");
+                System.out.println(word[3]);
+                JavaHttpClientSEND cor = new JavaHttpClientSEND();
+                cor.ClientS("addbid","{\"Item_number\":\""+word[3]+"\",\"User_id\":\""+words[3]+"\",\"Bid_amount\":\""+rprice+"\",\"Bid_date\":\""+today+"\"}");
+                //
+                JOptionPane.showMessageDialog(this, "Bid Placed");
+                dispose();
+            new Homepage(Email).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Bid lower than Current highest bid"); 
+            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Bid not entered correctly");
         }
-        
-        
+    }else{
+            JOptionPane.showMessageDialog(this, "Bid is over");
+            System.out.println("::::::::"+Email);
+            new Homepage(Email).setVisible(true);
+            dispose();
+            
+        }
+            
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

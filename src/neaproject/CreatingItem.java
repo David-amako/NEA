@@ -5,7 +5,9 @@
 package neaproject;
 
 import java.awt.Color;
+import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -16,13 +18,15 @@ import javax.swing.JOptionPane;
 public class CreatingItem extends javax.swing.JFrame {
 
   
-    private String usernamee;
-
-    public void setUsernamee(String usernamee) {
-        this.usernamee = usernamee;
+    String Seller;
+    
+     public CreatingItem(String msg) {
+        initComponents();
+        jLabel5.setText(msg);
+        Seller = msg;
+         
     }
     
-
 
     
             
@@ -110,7 +114,7 @@ public class CreatingItem extends javax.swing.JFrame {
         Starting_Price.setText("Starting Price");
 
         Bid_Duration.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Bid_Duration.setText("Bid Duration");
+        Bid_Duration.setText("End Date");
 
         Category.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Category.setText("Categoty");
@@ -164,7 +168,7 @@ public class CreatingItem extends javax.swing.JFrame {
 
         EditCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select...", "Shoes", "Clothing", "Electronics", "Sports", "Health", "Furniture", "Other" }));
 
-        EditDuration.setText("00:00:00");
+        EditDuration.setText("YYYY-MM-DD");
         EditDuration.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 EditDurationFocusGained(evt);
@@ -182,7 +186,6 @@ public class CreatingItem extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Format 24h 45mins 30sec = 24:45:30");
 
         Create.setText("Create");
         Create.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +232,8 @@ public class CreatingItem extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
                                             .addComponent(jLabel3))))
-                                .addGap(0, 72, Short.MAX_VALUE)))
-                        .addContainerGap(344, Short.MAX_VALUE))
+                                .addGap(0, 188, Short.MAX_VALUE)))
+                        .addContainerGap(460, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -277,8 +280,8 @@ public class CreatingItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Homepage log = new Homepage();
-        log.setVisible(true);
+        
+        new Homepage(Seller).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -300,24 +303,25 @@ public class CreatingItem extends javax.swing.JFrame {
             String Description = EditDesciption.getText();
             String StatingPrice = EditStarting_Price.getText();
             int ncategory = EditCategory.getSelectedIndex();
-            String Duration = EditDuration.getText();
+            String Date = EditDuration.getText();
             String Category = EditCategory.getItemAt(ncategory);
             
             JavaHttpClientSEND con = new JavaHttpClientSEND();
             SignIn in = new SignIn();
             
-            String Seller = jLabel5.getText();
             
             
-            con.ClientS("additem","{\"Title\":\""+Title+"\",\"Description\":\""+Description+"\",\"Starting_Bid\":\""+StatingPrice+"\",\"Current_bid\":\""+StatingPrice+"\",\"Bid_duration\":\""+Duration+"\",\"Seller\":\""+Seller+"\",\"Category\":\""+Category+"\"}");
+            
+            
+            
+            con.ClientS("additem","{\"Title\":\""+Title+"\",\"Description\":\""+Description+"\",\"Starting_Bid\":\""+StatingPrice+"\",\"Current_bid\":\""+StatingPrice+"\",\"End_time\":\""+Date+"\",\"Seller\":\""+Seller+"\",\"Category\":\""+Category+"\"}");
             
             
             JOptionPane.showMessageDialog(this, "Item successfully added");
             
-            dispose();
-                    Homepage log = new Homepage();
-                    log.setVisible(true);
-            
+                    dispose();
+                    
+                    new Homepage(Seller).setVisible(true);
             
 
 

@@ -5,6 +5,7 @@
  */
 package neaproject;
 
+import java.util.ArrayList;
 import javax.swing.plaf.TabbedPaneUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
@@ -16,7 +17,109 @@ public class Profile extends javax.swing.JFrame {
 
     
     public Profile() {
+    initComponents();
+    }
+    String Data;
+    String Firstname;
+    String Surname;
+    String Email;
+    String Password;
+    String Registration_Date;
+    String Address;
+    String Phone;
+    
+    public Profile(String a) {
         initComponents();
+        
+        JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        
+        Data = con.ClientR("user/"+a);
+        System.out.println(Data);
+        
+        String[] words1 = Data.split(",");
+        String[] words = Data.split("\"");
+        
+        System.out.println(words[3]);
+       
+        
+        String[] d = new String[8];
+        
+       for (int i = 0; i < words1.length; i++) {
+           
+            
+           words1[i] = words1[i].replaceAll("\\{\"useraccounts\":\\{\""+words[3]+"\":\\{", "");
+
+            words1[i] = words1[i].replaceAll("}}}", "");
+
+            
+            words1[i] = words1[i].replaceAll("useraccounts", "");
+
+            if (!words1[i].isEmpty()) {
+                d[i] = words1[i];
+                
+            }
+       }
+       
+        Firstname = d[0];
+        Surname = d[1];
+        Email = a;
+        Password = d[3];
+        Registration_Date = d[4];
+        Address = d[5];
+        Phone = d[6];
+    
+       String[] FN = d[0].split("\"");
+        try {
+            jTextField2.setText(FN[3]);
+        } catch (Exception e) {
+            jTextField2.setText("");
+        }
+        
+        String[] SN = d[1].split("\"");
+        try {
+            jTextField4.setText(SN[3]);
+        } catch (Exception e) {
+            jTextField4.setText("");
+        }
+        
+        String[] EM = d[2].split("\"");
+        try {
+            jTextField6.setText(EM[3]);
+        } catch (Exception e) {
+            jTextField6.setText("");
+        }
+        
+        String[] PW = d[3].split("\"");
+        try {
+            jPasswordField1.setText(PW[3]);
+        } catch (Exception e) {
+            jPasswordField1.setText("");
+        }
+        
+        String[] RD = d[4].split("\"");
+        try {
+            jTextField5.setText(RD[3]);
+        } catch (Exception e) {
+            jTextField5.setText("");
+        }
+        
+        String[] ADD = d[5].split("\"");
+        try {
+            jTextField7.setText(ADD[3]);
+        } catch (Exception e) {
+            jTextField7.setText("");
+        }
+        
+        String[] PH = d[6].split("\"");
+        try {
+            jTextField8.setText(PH[3]);
+        } catch (Exception e) {
+            jTextField8.setText("");
+        }
+        
+       
+       
+       
         
     }
     
@@ -32,8 +135,6 @@ public class Profile extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,12 +148,12 @@ public class Profile extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         CreateItem = new javax.swing.JButton();
@@ -81,20 +182,12 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Welcome");
-
-        jLabel7.setText("jLabel7");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6))
-                .addGap(68, 68, 68)
+                .addGap(170, 170, 170)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,17 +196,10 @@ public class Profile extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -129,7 +215,7 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel11.setText("Reg Date");
 
-        jLabel12.setText("Adress");
+        jLabel12.setText("Address");
 
         jLabel13.setText("Phone");
 
@@ -140,8 +226,6 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        jTextField3.setEditable(false);
-
         jTextField4.setEditable(false);
 
         jTextField5.setEditable(false);
@@ -151,6 +235,9 @@ public class Profile extends javax.swing.JFrame {
         jTextField7.setEditable(false);
 
         jTextField8.setEditable(false);
+
+        jPasswordField1.setEditable(false);
+        jPasswordField1.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,9 +257,9 @@ public class Profile extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -188,7 +275,7 @@ public class Profile extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField6)
                     .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(481, 481, 481)
@@ -215,9 +302,9 @@ public class Profile extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -348,8 +435,8 @@ public class Profile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Homepage log = new Homepage();
-        log.setVisible(true);
+        
+        new Homepage(Email).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -359,8 +446,9 @@ public class Profile extends javax.swing.JFrame {
 
     private void CreateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateItemActionPerformed
                 dispose();
-                CreatingItem sign = new CreatingItem();
-                sign.setVisible(true);
+                
+                new CreatingItem(Email).setVisible(true);
+                
     }//GEN-LAST:event_CreateItemActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -414,8 +502,6 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -425,10 +511,10 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;

@@ -10,6 +10,9 @@ package neaproject;
  * @author amakod
  */
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.time.chrono.ChronoLocalDate;
 import java.time.LocalDate;
@@ -1178,9 +1181,18 @@ public class Homepage extends javax.swing.JFrame {
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
          
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
+         
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
          
     }//GEN-LAST:event_jTable1MouseClicked
@@ -1195,10 +1207,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -1212,10 +1232,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable3MouseClicked
 
@@ -1229,10 +1257,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable4MouseClicked
 
@@ -1246,10 +1282,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable5MouseClicked
 
@@ -1263,10 +1307,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable6MouseClicked
 
@@ -1280,10 +1332,18 @@ public class Homepage extends javax.swing.JFrame {
          String End_Time = Model.getValueAt(Row, 3).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
          
          String Seller = Model.getValueAt(Row, 4).toString();
          
-         new ItemPage(Title,Description,Price,localDate,Seller, username).setVisible(true);
+         new ItemPage(Title,Description,Price,localDate,Seller, username, Item_number).setVisible(true);
          dispose();
     }//GEN-LAST:event_jTable7MouseClicked
 

@@ -5,7 +5,13 @@
  */
 package neaproject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.TabbedPaneUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
@@ -125,6 +131,9 @@ public class Profile extends javax.swing.JFrame {
         model2.setRowCount(0);
        
         String Data1 = (con.ClientR("myitems/"+user_id));
+        String Data0 = con.ClientR("bidsum/"+user_id);
+        String[] thingst = Data0.split("\"");
+        jTextField1.setText(thingst[11]);
         
         String[] things = Data1.split(",");
        
@@ -257,6 +266,8 @@ public class Profile extends javax.swing.JFrame {
         MyBids = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
 
@@ -440,6 +451,11 @@ public class Profile extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        MyItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MyItemsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(MyItems);
 
         MyBids.setModel(new javax.swing.table.DefaultTableModel(
@@ -461,6 +477,11 @@ public class Profile extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        MyBids.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MyBidsMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(MyBids);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -468,6 +489,11 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("My Bids");
+
+        jLabel14.setText("Total Spent:");
+
+        jTextField1.setEditable(false);
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -489,23 +515,30 @@ public class Profile extends javax.swing.JFrame {
                             .addComponent(jScrollPane2)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(473, 473, 473)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7)
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CreateItem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CreateItem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(12, 12, 12)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -586,6 +619,50 @@ public class Profile extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
        
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void MyItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyItemsMouseClicked
+        
+        int Row = MyItems.getSelectedRow();
+        DefaultTableModel Model = (DefaultTableModel)MyItems.getModel();
+        String Title = Model.getValueAt(Row, 0).toString();
+        String Description = Model.getValueAt(Row, 1).toString();
+        JavaHttpClientRECIVE con = new JavaHttpClientRECIVE();
+        String Data = null;
+        try {
+            Data = con.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException ex) {   
+        }
+        String[] things1 = Data.split("\"");
+        String Item_number = things1[3];
+        
+        
+        String Sprice = Model.getValueAt(Row, 2).toString();
+        String Cprice = Model.getValueAt(Row, 3).toString();
+         
+        new ItemAnalysis(Title,Description,Email,user_id, Sprice, Cprice, Item_number).setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_MyItemsMouseClicked
+
+    private void MyBidsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyBidsMouseClicked
+        
+        int Row = MyBids.getSelectedRow();
+        DefaultTableModel Model = (DefaultTableModel)MyBids.getModel();
+        
+        LocalDate today = LocalDate.now();
+        
+        String End_Time = Model.getValueAt(Row, 6).toString();
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+         LocalDate localDate = LocalDate.parse(End_Time, formatter);
+         String Title = Model.getValueAt(Row, 0).toString();
+        String Description = Model.getValueAt(Row, 1).toString();
+        if (today.isBefore(localDate)) {
+            JOptionPane.showMessageDialog(this, "Bid has not ended");
+        } else {
+            new ReviewPage(Email, Title, Description).setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_MyBidsMouseClicked
     
     /**
      * @param args the command line arguments
@@ -632,6 +709,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -651,6 +729,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;

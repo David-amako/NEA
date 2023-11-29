@@ -473,7 +473,7 @@
                               <Table columnCount="8" rowCount="4">
                                 <Column editable="false" title="Title" type="java.lang.Object"/>
                                 <Column editable="false" title="Description" type="java.lang.Object"/>
-                                <Column editable="true" title="Starting Price" type="java.lang.Object"/>
+                                <Column editable="false" title="Starting Price" type="java.lang.Object"/>
                                 <Column editable="false" title="Your Bid Price" type="java.lang.Object"/>
                                 <Column editable="false" title="Current Bid Price" type="java.lang.Object"/>
                                 <Column editable="false" title="Bid Date" type="java.lang.Object"/>

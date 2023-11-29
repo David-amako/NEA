@@ -320,7 +320,7 @@ public class Registration extends javax.swing.JFrame {
             }else{
                 int data = con.ClientS("adduser","{\"Firstname\":\""+firstname+"\",\"Surname\":\""+surname+"\",\"Email\":\""+email+"\",\"Password\":\""+password+"\",\"Registration_date\":\""+date+"\",\"Phone\":\""+phone+"\"}");
                 if (data == 500) {
-                       JOptionPane.showMessageDialog(this, "Email has been used");
+                       JOptionPane.showMessageDialog(this, "An Error has occured maybe email is aleady used");
                  EditEmail.setText("");
                     }else{
                 JOptionPane.showMessageDialog(this, "Account Sucsessfully Added");

@@ -185,7 +185,7 @@ public class Profile extends javax.swing.JFrame {
         
        for (int i = 0; i < things1.length; i++) {
             
-            things1[i] = things1[i].replaceAll("\\{", "");
+           things1[i] = things1[i].replaceAll("\\{", "");
             things1[i] = things1[i].replaceAll(":\\{", "");
             things1[i] = things1[i].replaceAll(":", "");
             things1[i] = things1[i].replaceAll(",", "");
@@ -206,19 +206,26 @@ public class Profile extends javax.swing.JFrame {
             things1[i] = things1[i].replaceAll("end_date", "");
 
             
-            w1.add(things1[i]);
-            if (w1.size() == 8) {
-                String x = w1.get(0);
-                w1.set(0, x.substring((x.length())/2));
-                int n = w1.size();
+            if (!things1[i].isEmpty()) {
+                System.out.println(":::::;::"+things1[i]);
+               w2.add(things1[i]);
+           }
+            
+            
+            
+            if (w2.size() == 8) {
+                String x = w2.get(0);
+                System.out.println(x+":::::;:");
+                w2.set(0, x.substring((x.length())/2));
+                int n = w2.size();
                 
                 
                 String[] tbData = new String[n];
                 for (int j = 0; j < n; j++) {
-                    tbData[j] = w1.get(j);
+                    tbData[j] = w2.get(j);
                 }
                 model2.addRow(tbData);
-                w1.clear();
+                w2.clear();
            }
        }
         
@@ -470,7 +477,7 @@ public class Profile extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -654,12 +661,12 @@ public class Profile extends javax.swing.JFrame {
         String End_Time = Model.getValueAt(Row, 6).toString();
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
          LocalDate localDate = LocalDate.parse(End_Time, formatter);
-         String Title = Model.getValueAt(Row, 0).toString();
-        String Description = Model.getValueAt(Row, 1).toString();
+         String tTitle = Model.getValueAt(Row, 0).toString();
+        String dDescription = Model.getValueAt(Row, 1).toString();
         if (today.isBefore(localDate)) {
             JOptionPane.showMessageDialog(this, "Bid has not ended");
         } else {
-            new ReviewPage(Email, Title, Description).setVisible(true);
+            new ReviewPage(Email, tTitle, dDescription).setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_MyBidsMouseClicked

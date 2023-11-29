@@ -103,6 +103,9 @@ public class ReviewPage extends javax.swing.JFrame {
             Data = log.ClientR("item?title="+URLEncoder.encode(Title, StandardCharsets.UTF_8.toString())+"&description="+URLEncoder.encode(Description, StandardCharsets.UTF_8.toString()));
         } catch (UnsupportedEncodingException ex) {   
         }
+        System.out.println(Data);
+        System.out.println(Title);
+        System.out.println(Description);
         String[] things1 = Data.split("\"");
         String Item_number = things1[3];
         String Review = jTextPane1.getText();

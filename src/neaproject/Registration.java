@@ -6,6 +6,7 @@
 package neaproject;
 
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
@@ -318,6 +319,12 @@ public class Registration extends javax.swing.JFrame {
                  EditPassword.setText("");
                  EditCPassword.setText("");
             }else{
+                Encryptor encryptor = new Encryptor();
+                try {
+                    password = encryptor.encryptString(password);
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 int data = con.ClientS("adduser","{\"Firstname\":\""+firstname+"\",\"Surname\":\""+surname+"\",\"Email\":\""+email+"\",\"Password\":\""+password+"\",\"Registration_date\":\""+date+"\",\"Phone\":\""+phone+"\"}");
                 if (data == 500) {
                        JOptionPane.showMessageDialog(this, "An Error has occured maybe email is aleady used");

@@ -314,14 +314,19 @@ public class CreatingItem extends javax.swing.JFrame {
             
             
             
-            con.ClientS("additem","{\"Title\":\""+Title+"\",\"Description\":\""+Description+"\",\"Starting_Bid\":\""+StatingPrice+"\",\"Current_bid\":\""+StatingPrice+"\",\"End_time\":\""+Date+"\",\"Seller\":\""+Seller+"\",\"Category\":\""+Category+"\"}");
+            int data = con.ClientS("additem","{\"Title\":\""+Title+"\",\"Description\":\""+Description+"\",\"Starting_Bid\":\""+StatingPrice+"\",\"Current_bid\":\""+StatingPrice+"\",\"End_Date\":\""+Date+"\",\"Seller\":\""+Seller+"\",\"Category\":\""+Category+"\"}");
             
+            if (data == 500) {
+                JOptionPane.showMessageDialog(this, "Error while adding item");
             
-            JOptionPane.showMessageDialog(this, "Item successfully added");
+        } else {
+                JOptionPane.showMessageDialog(this, "Item successfully added");
             
                     dispose();
                     
                     new Homepage(Seller).setVisible(true);
+            
+        }
             
 
 

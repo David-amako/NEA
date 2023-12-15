@@ -6,6 +6,7 @@
 package neaproject;
 
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
@@ -172,7 +173,16 @@ public class SignIn extends javax.swing.JFrame {
         boolean success = false;
         
         String usernamee = EditEmail.getText();
-        String password = EditPassword.getText();
+        String passsss = EditPassword.getText();
+        
+        Encryptor encryptor = new Encryptor();
+        
+        String password = null;
+        try {
+            password = encryptor.encryptString(passsss);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(SignIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
         CreatingItem creatingItem = new CreatingItem();
         
